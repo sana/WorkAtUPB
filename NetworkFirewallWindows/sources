@@ -1,0 +1,5 @@
+TARGETNAME = ipfirewall
+TARGETPATH = obj
+TARGETTYPE = DRIVER
+
+SOURCES = ip_firewall.c rules.c

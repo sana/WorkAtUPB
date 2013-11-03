@@ -1,0 +1,16 @@
+CFLAGS = /W3 /nologo /EHsc
+
+all: build-pre build-post
+
+build-pre: test.exe
+
+build-post:
+
+test.exe: _test\test.obj
+	$(CC) /Fe$@ $** /link advapi32.lib 
+
+_test\test.obj: _test\test.c
+	$(CC) $(CFLAGS) /c /Fo$@ _test\test.c
+
+run: test.exe
+    test.exe

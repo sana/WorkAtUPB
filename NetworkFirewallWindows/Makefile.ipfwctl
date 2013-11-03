@@ -1,0 +1,11 @@
+CFLAGS = -Wall
+
+build: ipfwctl
+
+.PHONY: build clean
+
+ipfwctl: _ipfwctl_lin/ipfwctl.c
+	$(CC) $(CFLAGS) $^ -o $@
+
+clean:
+	rm -f ipfwctl *.o *~

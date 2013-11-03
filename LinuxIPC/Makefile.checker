@@ -1,0 +1,8 @@
+
+all:
+	cd _test && ./run_all.sh
+
+build-pre:
+
+build-post:
+

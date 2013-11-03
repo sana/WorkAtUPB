@@ -1,0 +1,52 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+<project name = "client" basedir = "." default = "run">
+	<property name = "src_dir" value = "src"/>
+	<property name = "build_dir" value = "build"/>
+	<property name = "classes_dir" value = "${build_dir}/classes"/>
+	<property name = "logs" value = "logs"/>
+	
+	<property name = "name" value = "sana"/>
+	<property name = "department" value = "IT"/>
+	<property name = "hostname" value = "localhost"/>
+	<property name = "port" value = "7001"/>
+	
+	<path id = "project_classpath">
+		<pathelement location = "${classes_dir}"/>
+	</path>
+	
+	<target name = "clean_build">
+		<delete dir = "${build_dir}"/>
+	</target>
+	
+	<target name = "clean_logs">
+		<delete dir = "${logs}"/>
+	</target>
+	
+	<target name = "clean" depends = "clean_build, clean_logs"/>
+	
+	<target name = "compile">
+		<mkdir dir = "${classes_dir}"/>
+		<!-- copy the 'log4j.properties' file -->
+		<copy todir = "${classes_dir}">
+			<fileset dir = "${src_dir}" excludes = "**/*.java"/>
+		</copy>
+		<javac debug = "on" srcdir = "${src_dir}" destdir = "${classes_dir}" classpathref = "project_classpath">
+			<compilerarg value = "-Xlint"/>
+		</javac>
+	</target>
+	
+	<target name = "run" depends = "compile">
+		<mkdir dir = "${logs}"/>
+		<java fork = "true" classname = "Client" classpathref = "project_classpath">
+			
+			<!-- this client's name -->
+			<arg value = "${name}"/>
+			<!-- the name of the department this client is part of -->
+			<arg value = "${department}"/>
+			<!-- the hostname where the server we're trying to connect to resides -->
+			<arg value = "${hostname}"/>
+			<!-- the port on which the server we're trying to connect to is listening for incoming connections -->
+			<arg value = "${port}"/>
+		</java>
+	</target>
+</project>

@@ -1,0 +1,20 @@
+CFLAGS = /W3 /EHsc /nologo
+LIBS = advapi32.lib
+
+all: build-pre build-post
+
+build-pre: test.exe
+
+build-post:
+
+test.exe: _test/test.c
+	$(CC) $(CFLAGS) /Fe$@ $** /link $(LIBS) > errors.out
+
+run: test.exe
+	test.exe
+
+clean:
+	del /Q /S test.exe test.obj
+
+pack:
+	zip test_sci_win.zip NMakefile.checker _test/test.c _test/sci_win.h

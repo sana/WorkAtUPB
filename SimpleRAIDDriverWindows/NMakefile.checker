@@ -1,0 +1,21 @@
+CFLAGS = /W3 /nologo
+
+build: test.exe
+
+test.exe: _test\test.obj _test\crc32.obj
+	$(CC) /nologo /Fe$@ $**
+
+_test\test.obj: _test\test.c _test\ssr.h _test\crc32.h
+	$(CC) $(CFLAGS) /c /Fo$@ _test\test.c
+
+_test\crc32.obj: _test\crc32.c _test\crc32.h
+	$(CC) $(CFLAGS) /c /Fo$@ _test\crc32.c
+
+run: build
+	.\test.exe
+
+clean:
+	del /Q /S *~ _test\*.obj _test\*~ test.exe
+
+pack:
+	zip -r test_ssr_win.zip _test NMakefile.checker

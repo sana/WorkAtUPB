@@ -1,0 +1,37 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+<project name = "authorization_server" basedir = "." default = "run">
+	<property name = "src_dir" value = "src"/>
+	<property name = "build_dir" value = "build"/>
+	<property name = "classes_dir" value = "${build_dir}/classes"/>
+	<property name = "logs" value = "logs"/>
+	
+	<path id = "project_classpath">
+		<pathelement location = "${classes_dir}"/>
+	</path>
+	
+	<target name = "clean_build">
+		<delete dir = "${build_dir}"/>
+	</target>
+	
+	<target name = "clean_logs">
+		<delete dir = "${logs}"/>
+	</target>
+	
+	<target name = "clean" depends = "clean_build, clean_logs"/>
+	
+	<target name = "compile">
+		<mkdir dir = "${classes_dir}"/>
+		<!-- copy the 'log4j.properties' file -->
+		<copy todir = "${classes_dir}">
+			<fileset dir = "${src_dir}" excludes = "**/*.java"/>
+		</copy>
+		<javac debug = "on" srcdir = "${src_dir}" destdir = "${classes_dir}" classpathref = "project_classpath">
+			<compilerarg value = "-Xlint"/>
+		</javac>
+	</target>
+	
+	<target name = "run" depends = "clean, compile">
+		<mkdir dir = "${logs}"/>
+		<java fork = "true" classname = "AuthorizationServer" classpathref = "project_classpath"/>
+	</target>
+</project>

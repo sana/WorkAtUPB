@@ -1,0 +1,30 @@
+// Dascalu Laurentiu, 342C3
+//Tema 4 SPRC, Serviciu de planificare bazat pe CORBA
+
+module ISchedulerCORBA
+{
+	struct SJob
+	{
+		string m_job;
+	};
+	
+	struct SJobResult
+	{
+		string m_result;
+	};
+	
+	interface IScheduler
+	{
+		short submitJob(in SJob job);
+		short getServerID();
+		SJobResult getResult(in short jobID);
+	};
+	
+	interface ISchedulerServer
+	{
+		string getCPU();
+		string getMem();
+		SJobResult executeJob(in SJob job);
+	};
+};
+

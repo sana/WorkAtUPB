@@ -1,0 +1,19 @@
+CFLAGS = -Wall -g
+
+.PHONY: test
+
+all: test
+	export LD_LIBRARY_PATH=. && ./test
+
+build-pre:
+	
+
+test: test.o
+	$(CC) -Wall -g   -o test $^ -L. -lvm
+
+build-post:
+	
+.PHONY: clean
+
+clean:
+	rm -f test *~ *.o

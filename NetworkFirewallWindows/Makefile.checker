@@ -1,0 +1,49 @@
+##
+## SO2 - Homework #5 - Stateful firewall
+##
+## Makefile.checker
+##
+
+# Change this to IP of machine where you run ./run-outside
+# You can use the fix-outside-ip.sh script to do that.
+OUTSIDE_IP = 192.168.196.1
+
+# No need to change anything below this line
+CFLAGS = -Wall
+PORT = 55555
+ZIP = tema5-checker.zip
+DEFAULT_IP = 192.168.196.139
+VMCHECKER_IP = 192.168.133.1
+
+build: test
+
+.PHONY: build build-pre build-post run run-outside run-inside clean pack
+
+build-pre:
+	./build-ipfwctl.sh
+
+build-post:
+
+run: run-inside
+
+run-outside: build
+	./test outside $(PORT)
+
+run-inside: build
+	./test inside $(PORT) $(OUTSIDE_IP)
+
+test: _test/test.c
+	$(CC) $(CFLAGS) $^ -o $@
+
+clean:
+	rm -f test *.o *~
+
+pack:
+	rm -f $(ZIP)
+	./fix-outside-ip.sh $(VMCHECKER_IP)
+	zip -r $(ZIP) _test/ _ipfwctl_lin/ _ipfwctl_win/ \
+		Makefile.checker Makefile.ipfwctl NMakefile.ipfwctl \
+		build-ipfwctl.sh fix-outside-ip.sh \
+		run-outside.sh run-inside.sh \
+		README.checker
+	./fix-outside-ip.sh $(DEFAULT_IP)

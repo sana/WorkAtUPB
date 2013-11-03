@@ -1,0 +1,17 @@
+
+
+386_OBJECTS=\
+ $(OBJ_PATH)\$O\ip_firewall.obj \
+ $(OBJ_PATH)\$O\rules.obj \
+
+
+
+
+
+# lowercased
+BASEDIR=c:\winddk\7600.16385.0
+OBJECT_ROOT=c:\winddk\7600.16385.0
+MAKEDIR_LOWERCASE=c:\cygwin\home\administrator\so2\tema5-win
+OBJ_PATH=c:\cygwin\home\administrator\so2\tema5-win
+CONCURRENT_MIDL=0
+CONCURRENT_MANIFEST_BUILD=0

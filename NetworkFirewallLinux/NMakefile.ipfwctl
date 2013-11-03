@@ -1,0 +1,7 @@
+build: ipfwctl
+
+ipfwctl: _ipfwctl_win/ipfwctl.c
+	cl _ipfwctl_win/ipfwctl.c /link wsock32.lib
+
+clean:
+	del /q ipfwctl.exe *.o *~

@@ -1,0 +1,19 @@
+CFLAGS = -Wall -g
+
+.PHONY: all run build-pre build-post clean
+
+all: build-pre build-post
+
+build-pre: test
+
+test: _test/test.o
+	$(CC) $(CFLAGS) -o $@ $^
+
+build-post:
+
+run: test
+	insmod uart16550.ko; cat /proc/modules > /dev/kmsg; rmmod uart16550
+	./test
+
+clean:
+	-rm -f *~ test _test/test.o

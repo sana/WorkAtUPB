@@ -1,0 +1,4 @@
+EXTRA_CFLAGS = -g
+  
+obj-m   = ipfirewall.o
+ipfirewall-y = ip_firewall.o rules.o

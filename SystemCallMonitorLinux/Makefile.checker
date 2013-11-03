@@ -1,0 +1,15 @@
+build: test
+
+test: _test/test.o
+	$(CC) -o $@ $^
+
+_test/test.o: _test/test.c
+
+run: build
+	./test
+
+clean:
+	-rm -f test _test/*.o _test/*~
+
+pack: clean
+	zip test_sci_lin.zip Makefile.checker _test/test.c _test/sci_lin.h

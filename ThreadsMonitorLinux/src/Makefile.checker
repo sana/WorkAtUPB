@@ -1,0 +1,17 @@
+CFLAGS=-g
+
+OBJS=_test/TestStresRW.o _test/TestTree.o _test/TestRing.o _test/Test.o _test/TestMonitor.o _test/TestRW.o _test/TestStres.o _test/Test1.o _test/Test2.o _test/Test3.o _test/Test4.o _test/Test5.o _test/Test6.o _test/ControlMonitor.o _test/ControlRW.o
+
+LIBS=-pthread LibMonitor.so LibRW.so
+
+test:
+	export LD_LIBRARY_PATH=. && ./Test
+
+build-pre:	
+
+build-post: $(OBJS)
+	if [ -z "`ldd LibMonitor.so | grep libstdc`" ] && [ -z "`ldd LibRW.so | grep libstdc`" ]; then \
+		gcc -Wall -o Test $(OBJS) $(LIBS); \
+	else \
+		g++ -Wall -o Test $(OBJS) $(LIBS); \
+	fi

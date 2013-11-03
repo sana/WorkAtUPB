@@ -1,0 +1,16 @@
+<project name="CORBA" basedir="." default="compile">
+	<property name="base.dir" value="." />
+    <property name="src.dir" value="src" />
+	<property name="build.dir" value="build" />
+	<property name="classes.dir" value="${build.dir}/classes" />
+
+    <path id="classpath" />
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="compile" depends="clean">
+		<mkdir dir="${classes.dir}" />
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath" encoding="ISO-8859-1" />
+	</target>
+</project>

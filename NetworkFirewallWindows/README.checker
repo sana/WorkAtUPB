@@ -1,0 +1,111 @@
+/*
+ * SO2 - Homework #5 - Stateful firewall
+ *
+ * README.checker
+ */
+
+Pentru testarea temei vor trebui folosite doua sisteme; unul pe care
+sa ruleze un kernel cu modulul de filtrare inserat (inside), iar celalalt
+exteriorul (outside).
+
+Recomandarea este sa utilizati sistemul gazda pe post de sistem outside
+si masina virtuala pe post de sistem inside.
+
+Astfel, veti avea nevoie sa rulati o instanta a testului pe masina gazda
+si o alta instanta a testului pe masina virtuala.
+
+Checker-ul se foloseste de un tool (ipfwctl) care comunica cu driver-ul.
+Acest tool este dependent de platforma, existand o versiune pentru driver-ul
+de Linux si una pentru driver-ul de Windows.
+
+Checker-ul in sine este independent de platforma, folosindu-se de ipfwctl
+pentru a realiza operatiile ce depind de platforma. Totusi, pe un sistem
+Windows, checker-ul trebuie compilat folosind Cygwin.
+
+Testarea pentru corectarea temei se realizeaza pe un sistem gazda Linux.
+
+Pasii pentru testarea temei sunt descrisi in cele ce urmeaza.
+
+
+1. Editare Makefile
+===================
+
+Inainte de rularea testelor, trebuie modificat fisierul Makefile.checker
+pentru stabilirea adresei IP pe care va rula checker-ul exterior.
+
+Se poate sari peste acest pas daca se ruleaza testele manual, specificand
+adresa IP in linia de comanda.
+
+Trebuie actualizata variabila OUTSIDE_IP din fisierul Makefile.checker.
+Script-ul fix-outside-ip.sh realizeaza acest lucru.
+
+Exemplu de rulare:
+./fix-outside-ip.sh 172.16.141.1
+
+
+2. Compilare
+============
+
+Inainte de rularea testelor trebuie compilat tool-ul user-space pentru
+controlarea driver-ului (ipfwctl).
+
+Pentru compilarea tool-ului pentru driver-ul de Linux:
+
+make -f Makefile.ipfwctl
+
+Pentru compilarea tool-ului pentru driver-ul de Windows:
+
+nmake /f NMakefile.ipfwctl
+
+Apoi se compileaza si checker-ul propriu-zis:
+
+make -f Makefile.checker
+
+Compilarea checker-ului trebuie facuta atat pe masina virtuala cat si
+pe sistemul gazda (sau pe sistemul pe care se ruleaza tester-ul outside).
+
+Observatie: pentru compilarea checker-ului pe Windows este nevoie de Cygwin
+(in cazul in care se face testarea folosind un sistem gazda Windows).
+
+
+3. Pornire checker outside
+==========================
+
+Pentru testare va trebui mai intai rulat checker-ul pe masina gazda (outside);
+acesta va porni un server socket care asculta pe portul 55555.
+
+Pentru a porni checkerul outside, folositi script-ul run-outside.sh:
+
+./run-outside.sh
+
+sau comanda:
+
+make -f Makefile.checker run-outside
+
+sau, direct din linia de comanda:
+
+./test outside 55555
+
+
+4. Pornire checker inside
+=========================
+
+Inainte de a porni checker-ul inside, nu uitat sa compilati driverul vostru.
+
+Tool-ul ipfwctl de Linux insereaza modulul folosind comanda:
+insmod ipfirewall.ko
+
+Tool-ul ipfwctl de Windows insereaza modulul folosind comanda:
+driver load objchk_wnet_x86\i386\ipfirewall.sys
+
+Apoi, pentru a porni checker-ul inside, folositi script-ul run-inside.sh:
+
+./run-inside.sh
+
+sau comanda:
+
+make -f Makefile.checker run-inside
+
+sau, pentru rularea cu IP-ul specificat in linia de comanda:
+
+./test inside 55555 OUTSIDE_IP

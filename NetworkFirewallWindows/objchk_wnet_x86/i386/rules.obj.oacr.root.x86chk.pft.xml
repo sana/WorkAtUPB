@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+<OACRDEFECTCOUNT>3</OACRDEFECTCOUNT>
+<OACRERRORCOUNT>0</OACRERRORCOUNT>
+<DEFECT _seq="1"><SFA><LINE>62</LINE><COLUMN>29</COLUMN><FILENAME>rules.c</FILENAME><FILEPATH>c:\cygwin\home\administrator\so2\tema5-win\</FILEPATH></SFA><DEFECTCODE>28155</DEFECTCODE><DESCRIPTION>The function being assigned or passed should be a KDEFERRED_ROUTINE function:  Add the declaration 'KDEFERRED_ROUTINE null_timer_callback;' before the current first declaration of null_timer_callback.</DESCRIPTION><FUNCTION>add_rule</FUNCTION><FUNCLINE>28</FUNCLINE><PATH/></DEFECT>
+<DEFECT _seq="2"><SFA><LINE>68</LINE><COLUMN>29</COLUMN><FILENAME>rules.c</FILENAME><FILEPATH>c:\cygwin\home\administrator\so2\tema5-win\</FILEPATH></SFA><DEFECTCODE>28155</DEFECTCODE><DESCRIPTION>The function being assigned or passed should be a KDEFERRED_ROUTINE function:  Add the declaration 'KDEFERRED_ROUTINE tcp_timer_callback;' before the current first declaration of tcp_timer_callback.</DESCRIPTION><FUNCTION>add_rule</FUNCTION><FUNCLINE>28</FUNCLINE><PATH/></DEFECT>
+<DEFECT _seq="3"><SFA><LINE>74</LINE><COLUMN>29</COLUMN><FILENAME>rules.c</FILENAME><FILEPATH>c:\cygwin\home\administrator\so2\tema5-win\</FILEPATH></SFA><DEFECTCODE>28155</DEFECTCODE><DESCRIPTION>The function being assigned or passed should be a KDEFERRED_ROUTINE function:  Add the declaration 'KDEFERRED_ROUTINE udp_timer_callback;' before the current first declaration of udp_timer_callback.</DESCRIPTION><FUNCTION>add_rule</FUNCTION><FUNCLINE>28</FUNCLINE><PATH/></DEFECT>
+</DEFECTS>

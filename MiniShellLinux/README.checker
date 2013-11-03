@@ -1,0 +1,16 @@
+* Pentru a rula testele (pe Windows trebuie instalat cygwin), se va lansa
+make.
+* Pentru a curata fisierele rezultate, make clean.
+* Makefile-ul ruleaza comenzile din fisierele "./inputs/test_*.txt" atat
+cu bash cat si cu mini-shell (vor rezulta fisiere din redirectarile
+comenzilor).
+* Fisierele rezultate din cele doua rulari sunt comparate, si, daca
+sunt identice, tema a trecut testul.
+* Testele 01, 02 si 15 au un comportament diferit
+** Testele 01 si 02 nu au ca rezultat fisiere noi; aceste teste sunt
+verificate comparand iesirea standard a temei cu output-ul corect
+generat de makefile (sunt rulate aceleasi comenzi ca in test_01.txt
+si test_02.txt, iar command prompt-ul temei este presupus ca fiind
+cel indicat in enuntul temei, "> ").
+** Testul 15 compara output-ul temei cu un output impus, atasat
+testelor (./outputs/test_15.txt).

@@ -1,0 +1,5 @@
+TARGETNAME = ssr
+TARGETPATH = obj
+TARGETTYPE = DRIVER
+
+SOURCES = crc32.c ssr.c
