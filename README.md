@@ -14,14 +14,14 @@ Projects
 - LinuxIPC; [IPC](http://en.wikipedia.org/wiki/Inter-process_communication) app for GNU/Linux.
 - MiniShellLinux; [BASH](http://en.wikipedia.org/wiki/Bash_(Unix_shell\)) like shell for GNU/Linux.
 - RemoteShellRPC; remote shell using [RPC](http://en.wikipedia.org/wiki/Remote_procedure_call).
-- NetworkFirewallLinux; [firewall](http://en.wikipedia.org/wiki/Firewall_(computing)) for GNU/Linux.
+- NetworkFirewallLinux; [firewall](http://en.wikipedia.org/wiki/Firewall_(computing\)) for GNU/Linux.
 - NetworkFirewallWindows; firewall for Windows.
 - SerialPortDriverLinux; [serial](http://en.wikipedia.org/wiki/Device_driver) driver for GNU/Linux.
 - SerialPortDriverWindows; serial driver for Windows.
 - SimpleRAIDDriverWindows; [RAID](http://en.wikipedia.org/wiki/RAID) driver for Windows.
 - SyscallMonitorWindows; [syscall](http://en.wikipedia.org/wiki/System_call) monitor for Windows.
 - SystemCallMonitorLinux; syscall monitor for GNU/Linux.
-- ThreadsMonitorLinux; [threads monitor](http://en.wikipedia.org/wiki/Monitor_(synchronization)) for GNU/Linux's [pthreads](http://en.wikipedia.org/wiki/POSIX_Threads).
+- ThreadsMonitorLinux; [threads monitor](http://en.wikipedia.org/wiki/Monitor_(synchronization\)) for GNU/Linux's [pthreads](http://en.wikipedia.org/wiki/POSIX_Threads).
 - VirtualMemoryLinux; [virtual memory](http://en.wikipedia.org/wiki/Virtual_memory) module for GNU/Linux.
 - SchedulingServiceCORBA; scheduling service implemented with [CORBA](http://en.wikipedia.org/wiki/Common_Object_Request_Broker_Architecture).
 - Image QuiltingCellArchitecture; [image quilting](http://en.wikipedia.org/wiki/Texture_synthesis) using the [CELL](http://en.wikipedia.org/wiki/CELL) architecture.
