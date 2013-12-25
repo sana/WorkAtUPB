@@ -1,4 +1,4 @@
-rork@UPB
+Work@UPB
 =========
 
 In this repository you can find some projects I have been working while my B.Sc.
