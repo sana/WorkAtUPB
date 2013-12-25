@@ -12,7 +12,7 @@ Projects
 - FaultTolerantService; fault tolerant service implemented with 2 masters and the slave processes are checkpointed periodically, on top of the [openMPI](http://en.wikipedia.org/wiki/Open_MPI) technology.
 - FilesServerLinux; [file server](http://en.wikipedia.org/wiki/File_server) for GNU/Linux.
 - LinuxIPC; [IPC](http://en.wikipedia.org/wiki/Inter-process_communication) app for GNU/Linux.
-- MiniShellLinux; [BASH](http://en.wikipedia.org/wiki/Bash_(Unix_shell\\)) like shell for GNU/Linux.
+- MiniShellLinux; [BASH](http://en.wikipedia.org/wiki/Bash_(Unix_shell\)) like shell for GNU/Linux.
 - RemoteShellRPC; remote shell using [RPC](http://en.wikipedia.org/wiki/Remote_procedure_call).
 - NetworkFirewallLinux; [firewall](http://en.wikipedia.org/wiki/Firewall_(computing)) for GNU/Linux.
 - NetworkFirewallWindows; firewall for Windows.
